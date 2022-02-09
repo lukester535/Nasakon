@@ -19,8 +19,8 @@ func _ready():
 
 func _on_Ring_body_entered(body):
 	if !used:
-		$AudioStreamPlayer.play()
-		var score = (1/(body.global_transform.origin.distance_to(global_transform.origin)))*100
+		var score = (1/(body.global_transform.origin.distance_to(global_transform.origin)))*1000
 		visible = false
 		used = true
+		get_parent().get_parent().collect(score)
 		#print(score)

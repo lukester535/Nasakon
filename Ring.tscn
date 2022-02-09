@@ -1,13 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Ring.dae" type="PackedScene" id=1]
 [ext_resource path="res://RingMat.tres" type="Material" id=2]
 [ext_resource path="res://Ring.gd" type="Script" id=3]
 [ext_resource path="res://TargetMat.tres" type="Material" id=4]
-[ext_resource path="res://Collect.wav" type="AudioStream" id=5]
 
 [sub_resource type="CylinderShape" id=1]
-radius = 28.8462
+radius = 52.7187
 height = 16.2294
 
 [node name="Ring" type="Area"]
@@ -19,15 +18,13 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 1 )
 
 [node name="Ring" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 
 [node name="Sphere001" parent="Ring" index="0"]
 material/0 = ExtResource( 4 )
 
 [node name="Cylinder" parent="Ring" index="1"]
 material/0 = ExtResource( 2 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
 
 [connection signal="body_entered" from="." to="." method="_on_Ring_body_entered"]
 
